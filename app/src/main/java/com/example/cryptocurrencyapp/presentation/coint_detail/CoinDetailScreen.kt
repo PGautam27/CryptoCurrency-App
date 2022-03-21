@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,10 +17,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.cryptocurrencyapp.data.remote.dto.TeamMember
 import com.example.cryptocurrencyapp.domain.model.Coin
 import com.example.cryptocurrencyapp.presentation.Screen
 import com.example.cryptocurrencyapp.presentation.coin_list.components.CoinListItem
 import com.example.cryptocurrencyapp.presentation.coint_detail.components.CoinTag
+import com.example.cryptocurrencyapp.presentation.coint_detail.components.TeamListItem
 import com.google.accompanist.flowlayout.FlowRow
 
 @Composable
@@ -78,7 +81,15 @@ fun CoinDetailScreen(
                     )
                     Spacer(modifier = Modifier.padding(15.dp))
                 }
-
+                items(coin.team) { teamMember ->
+                    TeamListItem(
+                        teamMember = teamMember,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(10.dp)
+                    )
+                    Divider()
+                }
             }
         }
 
