@@ -71,8 +71,14 @@ fun CoinDetailScreen(
                             CoinTag(tag = tag)
                         }
                     }
-
+                    Spacer(modifier = Modifier.padding(15.dp))
+                    Text(
+                        text = "Team Members",
+                        style = MaterialTheme.typography.h3
+                    )
+                    Spacer(modifier = Modifier.padding(15.dp))
                 }
+
             }
         }
 
